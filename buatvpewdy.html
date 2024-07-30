@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foryouu</title>
+    <style>
+        /* Gaya untuk halaman awal */
+        .intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+            color: #333;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .intro h1 {
+            font-size: 3em;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .intro p {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .intro input {
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .intro button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .intro button:hover {
+            background-color: #c0392b;
+        }
+        /* Gaya untuk halaman utama */
+        .main-content {
+            display: none;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+            position: relative;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .photo {
+            margin: 20px 0;
+        }
+        .photo img {
+            max-width: 40%; /* Mengatur ukuran gambar menjadi 40% dari lebar kontainer */
+            height: auto; /* Menjaga rasio aspek gambar */
+            border-radius: 8px;
+        }
+        .message {
+            font-size: 1.5em;
+            color: #555;
+            margin: 20px 0;
+        }
+        .heart-container {
+            position: relative; /* Mengatur posisi relative agar hati bisa diposisikan dengan baik */
+            margin-top: 20px; /* Menambahkan jarak atas agar tidak menumpuk dengan teks */
+        }
+        .heart {
+            position: relative;
+            color: #e74c3c;
+            font-size: 3em; /* Ukuran font yang lebih besar untuk hati */
+            animation: heartbeat 1.5s infinite;
+            margin-bottom: 20px; /* Jarak bawah antara hati dan teks */
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .lyrics {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        .lyrics span {
+            display: block;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+        }
+        .lyrics .active {
+            opacity: 1;
+            font-weight: bold;
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Awal -->
+    <div class="intro" id="intro">
+        <h1>Halo Sayangnya akuu</h1>
+        <p>Kamu sayang aku ga?</p>
+        <input type="password" id="passwordInput" placeholder="Masukkan Password" />
+        <button onclick="checkPassword()">Masuk</button>
+    </div>
+
+    <!-- Halaman Utama -->
+    <div class="main-content" id="main-content">
+        <div class="container">
+            <h1>I LOVE YOUUU</h1>
+            <div class="photo">
+                <!-- Ganti dengan URL foto Anda -->
+                <img src="pt%201%20.jpg" alt="Foto Romantis">
+            </div>
+            <div class="message">
+                <!-- Ganti dengan pesan romantis Anda -->
+                <p>I Love You, Sayang. asal kamu tau yaaa !! aku sayang amayy sama kamu , tapi kadang aku juga kesel kamu ngeselin juga . tapi tapi bikin kangen ,
+                     jadinyaa aku kangenn banget sama kamu wanna hugg , wanna kiss uuu , wannaa apa lagi yaa , pokonyaa thank uu sayang udah sama akuu , so lucky to know uu. 
+                     satu lagiii sooo pround off uuu bb !! lagi sibuk ya kartanya bentar lagi semangatt sayangkuuu , aku kan sama kamu jadii , kalo cape bisa bagi dua kaya kikoo , ntar 
+                     kita beli ololo lagi ya omm 
+                     one moree 
+                     I LOVE UUU SO MUCHH BB!! .</p>
+            </div>
+            <div class="heart-container">
+                <!-- Hati bergerak -->
+                <div class="heart">❤️</div>
+            </div>
+            <div class="lyrics" id="lyrics">
+                <span id="line1">take me home im faliin .....</span>
+                <span id="line2">love me long im rollin...</span>
+                <span id="line3">loosing control body and soul mind to for sure im all ready yours...</span>
+                <!-- Tambahkan lebih banyak lirik sesuai kebutuhan -->
+            </div>
+            <!-- Menambahkan elemen audio untuk memutar musik -->
+            <audio id="audio" controls>
+                <source src="Mentahan Lirik Lagu 30 Detik Pamungkas- TO The Bone ( Lirik + Terjemahan ) Story Wa.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk memeriksa password
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const password = passwordInput.value;
+
+            // Password yang benar
+            const correctPassword = 'sayanggg';
+
+            if (password === correctPassword) {
+                // Jika password benar, tampilkan halaman utama
+                document.getElementById('intro').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                
+                // Memutar audio secara otomatis
+                const audio = document.getElementById('audio');
+                audio.play().catch(function(error) {
+                    console.log('Error playing audio:', error);
+                });
+            } else {
+                alert('Password salah. Coba lagi.');
+                passwordInput.value = ''; // Kosongkan input password
+            }
+        }
+
+        // JavaScript untuk sinkronisasi lirik dengan musik
+        const audio = document.getElementById('audio');
+        const lyrics = document.getElementById('lyrics');
+        const lines = lyrics.getElementsByTagName('span');
+
+        // Durasi setiap lirik dalam detik
+        const timings = [
+            { line: 0, start: 0, end: 5 },   // Line 1 dari detik 0 sampai 5
+            { line: 1, start: 5, end: 10 },  // Line 2 dari detik 5 sampai 10
+            { line: 2, start: 10, end: 15 }  // Line 3 dari detik 10 sampai 15
+        ];
+
+        // Mengatur interval untuk memeriksa waktu musik
+        function updateLyrics() {
+            const currentTime = audio.currentTime;
+            timings.forEach(timing => {
+                const line = lines[timing.line];
+                if (currentTime >= timing.start && currentTime < timing.end) {
+                    line.classList.add('active');
+                } else {
+                    line.classList.remove('active');
+                }
+            });
+        }
+
+        audio.addEventListener('timeupdate', updateLyrics);
+
+        // Mengatur musik berhenti setelah 15 detik
+        audio.addEventListener('ended', function () {
+            setTimeout(() => {
+                audio.pause();
+                audio.currentTime = 0;
+            }, 15000);
+        });
+    </script>
+</body>
+</html>
